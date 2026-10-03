@@ -30,7 +30,7 @@
   --rule:rgba(20,27,51,.14);
   --f-display:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
   --f-body:"Newsreader",Georgia,"Times New Roman",serif;
-  --s-1:clamp(2.6rem,6vw,4.6rem);
+  --s-1:clamp(2.3rem,4.8vw,3.9rem);
   --s-2:clamp(1.7rem,3.2vw,2.4rem);
   --s-3:1.25rem;
 }
@@ -81,7 +81,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;backgroun
 .hero-grid>*{min-width:0}
 .hero h1 .gold{color:var(--gold)}
 .hero h1 .small{display:block;font-size:.42em;letter-spacing:.14em;font-weight:500;margin-block:.5em .35em;color:var(--ink-soft)}
-.hero .lede{font-size:1.3rem;max-width:40ch;margin-top:22px;color:var(--ink-soft)}
+.hero .lede{font-size:1.25rem;max-width:46ch;margin-top:22px;color:var(--ink-soft)}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .creds{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,36px);border-top:1px solid var(--rule);margin-top:clamp(40px,6vw,64px);padding-top:clamp(22px,3vw,30px)}
 .creds>div{min-width:0;align-content:start}
@@ -149,9 +149,11 @@ dialog.pop::backdrop{background:rgba(10,14,30,.55)}
 .btn{text-align:center}
 @media (max-width:860px){.g2{grid-template-columns:1fr}}
 /* level toggle */
-.toggle{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;background:var(--paper-2);border:1px solid var(--rule);border-radius:6px;max-width:760px;margin:0 auto clamp(28px,4vw,44px)}
-.toggle button{font-family:var(--f-display);background:transparent;border:0;border-radius:4px;padding:16px 14px;cursor:pointer;color:var(--ink-soft);display:grid;gap:4px;justify-items:center;text-align:center;transition:background .2s,color .2s}
-.toggle button b{font-size:1.05rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.toggle-label{font-family:var(--f-display);font-weight:600;font-size:1rem;text-align:center;margin-bottom:12px}
+.toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px;background:var(--paper-2);border:2px solid var(--gold);border-radius:8px;max-width:820px;margin:0 auto clamp(28px,4vw,44px)}
+@media (max-width:520px){.toggle{grid-template-columns:1fr}}
+.toggle button{font-family:var(--f-display);background:var(--card);border:1px solid var(--rule);border-radius:5px;padding:20px 14px;cursor:pointer;color:var(--ink-soft);display:grid;gap:4px;justify-items:center;text-align:center;transition:background .2s,color .2s}
+.toggle button b{font-size:1.15rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .toggle button span{font-size:.88rem;letter-spacing:.02em}
 .toggle button[aria-selected="true"]{background:var(--ink);color:var(--paper);box-shadow:0 10px 24px -14px rgba(10,14,30,.7)}
 .toggle button:not([aria-selected="true"]):hover{color:var(--ink);background:color-mix(in srgb,var(--card) 70%,transparent)}
@@ -257,8 +259,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">Career &amp; job search coach · Santa Clara, CA &amp; online</p>
-        <h1 style="margin-top:18px">Find work <span class="gold">that fits</span><span class="small">and keep your calm while you look</span></h1>
-        <p class="lede">I spent six years deciding who got hired. Now I coach people through the job search, the career pivot, and the hard middle part where most people give up.</p>
+        <h1 style="margin-top:18px">No more <span class="gold">accidental careers.</span><span class="small">Future-proof your next move with work you'll actually love.</span></h1>
+        <p class="lede">I spent six years deciding who got hired. Now I coach professionals to find work aligned with who they are—helping you run an intentional search for roles that are fulfilling, sustainable, and built to last.</p>
         <div class="ctas">
           <a class="btn btn-solid" data-link="booking" href="#contact">Book a free 20-minute call</a>
           <a class="btn btn-ghost" href="#pricing">See packages</a>
@@ -280,7 +282,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">How I help</p>
-        <h2>Three kinds of help, often in the same person at the same time</h2>
+        <h2>With you for the whole search, start to signed offer</h2>
+        <p class="prose">This is a tough job market, and a strategy only works if you understand it and follow it. So I don't hand you a plan and disappear. I walk you through each step, explain why it matters, check that it's working, and adjust it with you when it isn't. You'll always know what to do next.</p>
       </div>
       <div class="services">
         <article>
@@ -375,18 +378,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <h2>Choose your level, then your level of support</h2>
         <p class="prose">Each level has three packages. Start with the smallest if you like: its full fee counts toward a larger one if you upgrade within 7 days.</p>
       </div>
+      <p class="toggle-label">Which describes you? Pick one to see its three packages.</p>
       <div class="toggle" role="tablist" aria-label="Choose your level">
         <button type="button" role="tab" id="tab-mid" aria-controls="plans-mid" aria-selected="true"><b>Mid-level professionals</b><span>Target salary $70k–$140k</span></button>
-        <button type="button" role="tab" id="tab-exec" aria-controls="plans-exec" aria-selected="false"><b>Senior &amp; executive roles</b><span>Target salary $150k–$350k</span></button>
+        <button type="button" role="tab" id="tab-exec" aria-controls="plans-exec" aria-selected="false"><b>Senior managers &amp; executives</b><span>Target salary $150k–$350k</span></button>
       </div>
       <div class="plans" id="plans-mid" role="tabpanel" aria-labelledby="tab-mid">
         <article class="plan">
           <span class="tag ghost">Entry</span>
-          <h3>Foundation</h3>
+          <h3>Rapid Strategy Session</h3>
           <p class="price">$400 <span class="alt">one-time</span></p>
-          <p class="who">A focused start: one session and a rewritten resume.</p>
+          <p class="who">A focused start: one session, a rewritten resume and a plan to follow.</p>
           <ul>
             <li><span><b>Strategy</b>1 session, 60 minutes <button class="more" type="button" data-d="mf1">Details</button></span></li>
+            <li><span><b>Roadmap</b>Customized roadmap and job search strategy playbook</span></li>
             <li><span><b>Materials</b>Resume rewrite</span></li>
             <li><span><b>Revisions</b>1 round, within 7 days</span></li>
             <li class="no"><span><b>Interview prep</b>Self-study guide</span></li>
@@ -431,7 +436,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             <li><span><b>Interview prep</b>Mock recruiter screen + hiring-manager simulation <button class="more" type="button" data-d="ma3">Details</button></span></li>
             <li><span><b>Support</b>Slack or WhatsApp, replies within 3 business hours</span></li>
             <li><span><b>Offer negotiation</b>Live strategy, scripts and counter-offer coaching</span></li>
-            <li><span><b>Guarantee</b>2 hiring-manager interviews in 75 days, or I keep coaching you <button class="more" type="button" data-d="ma4">Details</button></span></li>
+            <li><span><b>Guarantee</b>4 hiring-manager interviews in 75 days, or I keep coaching you <button class="more" type="button" data-d="ma4">Details</button></span></li>
           </ul>
           <div class="pay">
             <a class="btn btn-solid" data-link="mid_acceleration" href="#contact">Get started</a>
@@ -442,11 +447,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div class="plans" id="plans-exec" role="tabpanel" aria-labelledby="tab-exec" hidden>
         <article class="plan">
           <span class="tag ghost">Entry</span>
-          <h3>Executive Audit</h3>
-          <p class="price">$800 <span class="alt">one-time</span></p>
-          <p class="who">A focused start: your leadership story and a new resume.</p>
+          <h3>Rapid Strategy Session</h3>
+          <p class="price">$600 <span class="alt">one-time, two sessions</span></p>
+          <p class="who">A focused start: your leadership story, a new resume and a plan to follow.</p>
           <ul>
             <li><span><b>Strategy</b>2 sessions, 50 minutes each <button class="more" type="button" data-d="ef1">Details</button></span></li>
+            <li><span><b>Roadmap</b>Customized roadmap and job search strategy playbook</span></li>
             <li><span><b>Materials</b>Executive resume rewrite</span></li>
             <li><span><b>Revisions</b>1 round</span></li>
             <li class="no"><span><b>Interview prep</b>Not included</span></li>
@@ -494,7 +500,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             <li><span><b>Support</b>Private VIP channel, replies within 3 business hours</span></li>
             <li><span><b>Compensation</b>Full negotiation strategy <button class="more" type="button" data-d="ep4">Details</button></span></li>
             <li><span><b>First 90 days plan</b>Executive onboarding blueprint</span></li>
-            <li><span><b>Guarantee</b>2 decision-maker interviews in 90 days, or I keep advising you <button class="more" type="button" data-d="ep5">Details</button></span></li>
+            <li><span><b>Guarantee</b>4 decision-maker interviews in 90 days, or I keep advising you <button class="more" type="button" data-d="ep5">Details</button></span></li>
           </ul>
           <div class="pay">
             <a class="btn btn-solid" data-link="exec_partnership" href="#contact">Get started</a>
@@ -505,10 +511,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
       <div class="g2">
         <div class="guarantee">
-          <div class="seal"><span><b>2</b>interviews</span></div>
+          <div class="seal"><span><b>4</b>interviews</span></div>
           <div>
             <h3>The interview guarantee</h3>
-            <p class="prose" style="margin-top:8px">Acceleration and Executive Partnership guarantee two interviews with real decision-makers, within 75 and 90 days. If that doesn't happen, I rework your materials at no charge and keep coaching you until you sign an offer. <button class="more" type="button" data-d="g1">Details</button></p>
+            <p class="prose" style="margin-top:8px">Acceleration and Executive Partnership guarantee four interviews with real decision-makers, within 75 and 90 days. If that doesn't happen, I rework your materials at no charge and keep coaching you until you sign an offer. <button class="more" type="button" data-d="g1">Details</button></p>
           </div>
         </div>
       </div>
@@ -523,7 +529,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       </div>
       <div class="faq">
         <details><summary>What are my payment options?</summary><p>Pay in full by card, or choose Affirm at checkout to spread the cost. Acceleration can also be paid in 2 payments of $1,250, and Executive Partnership in 3 payments of $1,550. Affirm's approval and terms are set by Affirm, and checking your options won't affect your credit score.</p></details>
-        <details><summary>Do you guarantee I'll get a job?</summary><p>No one honestly can. What the top package at each level does guarantee is interviews: two with hiring managers within 75 days on Acceleration, or two with decision-makers within 90 days on Executive Partnership, as long as you keep up your weekly outreach. If we miss that, I rework your materials at no charge and keep coaching you until you sign an offer.</p></details>
+        <details><summary>Do you guarantee I'll get a job?</summary><p>No one honestly can. What the top package at each level does guarantee is interviews: four with hiring managers within 75 days on Acceleration, or four with decision-makers within 90 days on Executive Partnership, as long as you keep up your weekly outreach. If we miss that, I rework your materials at no charge and keep coaching you until you sign an offer.</p></details>
         <details><summary>Are sessions online or in person?</summary><p>Online by video, so you can be anywhere. In-person sessions are available in the South Bay on request.</p></details>
         <details><summary>Who do you work with?</summary><p>Mid-level professionals, managers and senior individual contributors through to directors, VPs and executives. Tech and corporate backgrounds especially, since that's where I recruited.</p></details>
         <details><summary>What if I'm not sure which package fits?</summary><p>Book the free 20-minute call, or start with the smallest package at your level. If you upgrade within 7 days, everything you paid counts toward the larger package.</p></details>
@@ -576,12 +582,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
    ============================================================ */
 const LINKS = {
   booking:     "https://calendly.com/consult44/job-search-strategy",
-  mid_foundation:   "",  // Stripe link: Mid-level Foundation ($400)
-  mid_strategy:     "",  // Stripe link: Mid-level Strategy ($1,950)
-  mid_acceleration: "",  // Stripe link: Mid-level Acceleration ($2,350)
-  exec_audit:       "",  // Stripe link: Executive Audit ($800)
-  exec_transition:  "",  // Stripe link: Executive Transition ($3,850)
-  exec_partnership: "",  // Stripe link: Executive Partnership ($4,450)
+  mid_foundation:   "https://buy.stripe.com/4gM5kD6qu4ja36i15ifrW0c",  // Stripe link: Mid-level Foundation ($400)
+  mid_strategy:     "https://buy.stripe.com/9B6cN5cOS9DucGS4hufrW0b",  // Stripe link: Mid-level Strategy ($1,950)
+  mid_acceleration: "https://buy.stripe.com/7sYcN5aGK2b29uG9BOfrW0a",  // Stripe link: Mid-level Acceleration ($2,350)
+  exec_audit:       "https://buy.stripe.com/bJe3cvdSW02UcGS3dqfrW09",  // Stripe link: Executive Rapid Strategy Session ($600)
+  exec_transition:  "https://buy.stripe.com/7sY28r4im8zqayK15ifrW08",  // Stripe link: Executive Transition ($3,850)
+  exec_partnership: "https://buy.stripe.com/dRmaEXg14cPGfT4eW8frW07",  // Stripe link: Executive Partnership ($4,450)
   book:        "",  // Amazon book URL once it's live (or pre-order URL)
   linkedin:    "https://www.linkedin.com/in/tom-vinkler"
 };
@@ -591,7 +597,7 @@ const LINKS = {
 const DETAILS = {
  "mf1": [
   "Your strategy session",
-  "<p>One 60-minute Zoom session covering which job titles to target and how AI is changing demand for your role. You also get a review of your resume, LinkedIn and search results so far, and a one-page action plan within 24 hours.</p>"
+  "<p>One 60-minute Zoom session covering which job titles to target and how AI is changing demand for your role. It includes a review of your resume, LinkedIn and search results so far.</p>"
  ],
  "mf2": [
   "How the credit works",
@@ -615,7 +621,7 @@ const DETAILS = {
  ],
  "ma4": [
   "The interview guarantee",
-  "<p>At least two interviews with hiring managers or departmental decision-makers within 75 days of launching your approved materials. Recruiter screens don't count toward the two; they're the step that gets you to the hiring manager.</p><p><b>If we don't get there:</b> I audit your materials and positioning, revise them at no charge, and keep coaching you every two weeks, including negotiation support, until you sign an offer (up to 4 more months). There are no cash refunds.</p><p><b>Your part:</b></p><ul><li>Log at least 5 targeted applications or outreach messages a week in our shared tracker</li><li>Do the prep session before each real interview and use the positioning we agreed</li><li>Keep the approved resume layout and messaging</li></ul><p>The guarantee is met if you receive a written offer that matches your target pay and location, even if you turn it down. Full terms are in your coaching agreement.</p>"
+  "<p>At least four interviews with hiring managers or departmental decision-makers within 75 days of launching your approved materials. Recruiter screens don't count toward the four; they're the step that gets you to the hiring manager.</p><p><b>If we don't get there:</b> I audit your materials and positioning, revise them at no charge, and keep coaching you every two weeks, including negotiation support, until you sign an offer (up to 4 more months). There are no cash refunds.</p><p><b>Your part:</b></p><ul><li>Log at least 5 targeted applications or outreach messages a week in our shared tracker</li><li>Do the prep session before each real interview and use the positioning we agreed</li><li>Keep the approved resume layout and messaging</li></ul><p>The guarantee is met if you receive a written offer that matches your target pay and location, even if you turn it down. Full terms are in your coaching agreement.</p>"
  ],
  "ef1": [
   "Your strategy sessions",
@@ -647,11 +653,11 @@ const DETAILS = {
  ],
  "ep5": [
   "The interview guarantee",
-  "<p>At least two decision-maker interviews within 90 days of launch. That means interviews with C-suite or VP hiring authorities or internal executive talent directors, or a place on an executive search firm's shortlist.</p><p><b>If we don't get there:</b> I audit your materials and positioning, revise them at no charge, and keep advising you every two weeks, including negotiation support, until you sign an offer (up to 6 more months). There are no cash refunds.</p><p><b>Your part:</b></p><ul><li>Log at least 5 targeted applications or outreach messages a week in our shared tracker</li><li>Do the prep session before each real interview and use the positioning we agreed</li><li>Keep the approved resume layout and messaging</li></ul><p>The guarantee is met if you receive a written offer that matches your target pay and location, even if you turn it down. Full terms are in your coaching agreement.</p>"
+  "<p>At least four decision-maker interviews within 90 days of launch. That means interviews with C-suite or VP hiring authorities or internal executive talent directors, or a place on an executive search firm's shortlist.</p><p><b>If we don't get there:</b> I audit your materials and positioning, revise them at no charge, and keep advising you every two weeks, including negotiation support, until you sign an offer (up to 6 more months). There are no cash refunds.</p><p><b>Your part:</b></p><ul><li>Log at least 5 targeted applications or outreach messages a week in our shared tracker</li><li>Do the prep session before each real interview and use the positioning we agreed</li><li>Keep the approved resume layout and messaging</li></ul><p>The guarantee is met if you receive a written offer that matches your target pay and location, even if you turn it down. Full terms are in your coaching agreement.</p>"
  ],
  "g1": [
   "The interview guarantee",
-  "<ul><li><b>Acceleration:</b> 2 hiring-manager interviews within 75 days of launching your approved materials</li><li><b>Executive Partnership:</b> 2 decision-maker interviews within 90 days of launch</li></ul><p><b>If we don't get there:</b> I audit and revise your materials at no charge and keep coaching you every two weeks until you sign an offer, for up to 4 more months (Acceleration) or 6 more months (Executive Partnership). There are no cash refunds.</p><p><b>Your part:</b> log at least 5 targeted applications or outreach messages a week, do the prep session before each real interview, and keep the approved resume and messaging.</p><p>Full terms are in your coaching agreement.</p>"
+  "<ul><li><b>Acceleration:</b> 4 hiring-manager interviews within 75 days of launching your approved materials</li><li><b>Executive Partnership:</b> 4 decision-maker interviews within 90 days of launch</li></ul><p><b>If we don't get there:</b> I audit and revise your materials at no charge and keep coaching you every two weeks until you sign an offer, for up to 4 more months (Acceleration) or 6 more months (Executive Partnership). There are no cash refunds.</p><p><b>Your part:</b> log at least 5 targeted applications or outreach messages a week, do the prep session before each real interview, and keep the approved resume and messaging.</p><p>Full terms are in your coaching agreement.</p>"
  ]
 };
 const tabs = [...document.querySelectorAll(".toggle [role=tab]")];
