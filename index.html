@@ -237,6 +237,18 @@ dialog.pop::backdrop{background:rgba(10,14,30,.55)}
 
 footer{padding-block:28px;font-family:var(--f-display);font-size:.82rem;letter-spacing:.06em;color:var(--ink-soft);border-top:1px solid var(--rule)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+/* durations, guarantee stamp, hover details (Nov 2026) */
+.plan .dur{font-family:var(--f-display);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink);border-left:3px solid var(--gold);padding-left:10px;margin-top:-6px}
+.plan.featured{position:relative}
+.stamp{position:absolute;top:14px;right:14px;transform:rotate(6deg);background:var(--gold);color:#141B33;font-family:var(--f-display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:.6em .85em;border-radius:3px;outline:1.5px solid #141B33;outline-offset:-4px;box-shadow:0 8px 18px -8px rgba(10,14,30,.5);white-space:nowrap}
+.plan .all{justify-self:center;background:none;border:0;padding:4px 0;font-family:var(--f-display);font-size:.86rem;color:var(--gold-ink);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.plan .all:hover{color:var(--ink)}
+.pop-in h4{font-family:var(--f-display);font-weight:600;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);margin:6px 0 -2px}
+#tip{position:fixed;z-index:60;display:none;max-width:min(360px,calc(100vw - 24px));max-height:min(60vh,440px);overflow:auto;background:var(--card);color:var(--ink-soft);border:1px solid var(--gold);border-radius:4px;padding:14px 16px;font-size:.95rem;line-height:1.5;box-shadow:0 24px 48px -20px rgba(10,14,30,.5)}
+#tip strong{display:block;font-family:var(--f-display);font-weight:600;color:var(--ink);margin-bottom:6px}
+#tip ul{margin:6px 0 0;padding-left:1.1em;display:grid;gap:5px}
+#tip p{margin:6px 0 0}
+#tip b{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -376,7 +388,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div class="sec-head">
         <p class="eyebrow">Packages</p>
         <h2>Choose your level, then your level of support</h2>
-        <p class="prose">Each level has three packages. Start with the smallest if you like: its full fee counts toward a larger one if you upgrade within 7 days.</p>
+        <p class="prose">Each level has three packages. Every package has a clear timeline. Start with the smallest if you like: its full fee counts toward a larger one if you upgrade within 30 days.</p>
       </div>
       <p class="toggle-label">Which describes you? Pick one to see its three packages.</p>
       <div class="toggle" role="tablist" aria-label="Choose your level">
@@ -388,47 +400,53 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <span class="tag ghost" style="visibility:hidden">&nbsp;</span>
           <h3>Strategy Audit</h3>
           <p class="price">$400 <span class="alt">one-time</span></p>
+          <p class="dur">One session · plan in 48 hours</p>
           <p class="who">A focused start: one session and a plan to follow.</p>
           <ul>
             <li><span><b>Strategy</b>1 session, 60 minutes <button class="more" type="button" data-d="mf1">Details</button></span></li>
             <li><span><b>Roadmap</b>Customized roadmap and job search strategy playbook</span></li>
-            <li><span><b>Support</b>Email, replies within 48 hours</span></li>
+            <li><span><b>Support</b>Email for 7 days, replies within 48 hours</span></li>
             <li><span><b>Upgrade credit</b>Full fee counts toward a larger package <button class="more" type="button" data-d="mf2">Details</button></span></li>
           </ul>
           <div class="pay">
             <a class="btn btn-ghost" data-link="mid_foundation" href="#contact">Get started</a>
             <p class="affirm">Card, or monthly payments with <b>Affirm</b></p>
+            <button class="all" type="button" data-d="full_mf">See everything included &rarr;</button>
           </div>
         </article>
         <article class="plan">
           <span class="tag ghost" style="visibility:hidden">&nbsp;</span>
           <h3>Standard</h3>
           <p class="price">$1,950 <span class="alt">one-time</span></p>
+          <p class="dur">60-day program</p>
           <p class="who">Sharper positioning and a search strategy, with regular sessions.</p>
           <ul>
             <li><span><b>Strategy</b>5 sessions, 45 minutes each <button class="more" type="button" data-d="ms1">Details</button></span></li>
-            <li><span><b>Materials</b>Feedback and positioning for your resume and LinkedIn <button class="more" type="button" data-d="ms2">Details</button></span></li>
+            <li><span><b>Materials</b>Feedback and positioning for your resume and LinkedIn, one target direction <button class="more" type="button" data-d="ms2">Details</button></span></li>
             <li><span><b>Feedback rounds</b>2 rounds</span></li>
             <li class="no"><span><b>Interview prep</b>Not included</span></li>
-            <li><span><b>Support</b>Email, replies within 24 hours</span></li>
+            <li><span><b>Support</b>Email, replies within 24 business hours</span></li>
             <li><span><b>Offer negotiation</b>Email templates only</span></li>
             <li class="no"><span><b>Guarantee</b>Not included</span></li>
           </ul>
           <div class="pay">
             <a class="btn btn-ghost" data-link="mid_strategy" href="#contact">Get started</a>
             <p class="affirm">Card, or monthly payments with <b>Affirm</b></p>
+            <button class="all" type="button" data-d="full_ms">See everything included &rarr;</button>
           </div>
         </article>
         <article class="plan featured">
+          <span class="stamp" aria-label="Includes the interview guarantee">&#10003; With guarantee</span>
           <span class="tag">Best value</span>
           <h3>Accelerator</h3>
           <p class="price">$2,350 <span class="alt">one-time</span></p>
+          <p class="dur">90-day program</p>
           <p class="who">The full program, with the interview guarantee.</p>
           <ul>
             <li><span><b>Strategy</b>8 sessions, 45 minutes each <button class="more" type="button" data-d="ma1">Details</button></span></li>
             <li><span><b>Materials</b>Feedback and positioning for 2 resume versions, LinkedIn and cover letter <button class="more" type="button" data-d="ma2">Details</button></span></li>
             <li><span><b>Feedback rounds</b>Up to 3 rounds</span></li>
-            <li><span><b>Interview prep</b>Mock recruiter screen + hiring-manager simulation <button class="more" type="button" data-d="ma3">Details</button></span></li>
+            <li><span><b>Interview prep</b>Mock recruiter screen + hiring-manager simulation, practiced until you're interview-ready <button class="more" type="button" data-d="ma3">Details</button></span></li>
             <li><span><b>Support</b>Slack or WhatsApp, replies within 3 business hours</span></li>
             <li><span><b>Offer negotiation</b>Live strategy, scripts and counter-offer coaching</span></li>
             <li><span><b>Guarantee</b>4 hiring-manager interviews in 90 days, or I keep coaching you <button class="more" type="button" data-d="ma4">Details</button></span></li>
@@ -436,6 +454,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <div class="pay">
             <a class="btn btn-solid" data-link="mid_acceleration" href="#contact">Get started</a>
             <p class="affirm">Card, or monthly payments with <b>Affirm</b></p>
+            <button class="all" type="button" data-d="full_ma">See everything included &rarr;</button>
           </div>
         </article>
       </div>
@@ -444,22 +463,25 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <span class="tag ghost" style="visibility:hidden">&nbsp;</span>
           <h3>Strategy Audit</h3>
           <p class="price">$600 <span class="alt">one-time, two sessions</span></p>
+          <p class="dur">Two sessions · plan in 48 hours</p>
           <p class="who">A focused start: two sessions on your leadership story and a plan to follow.</p>
           <ul>
             <li><span><b>Strategy</b>2 sessions, 45 minutes each <button class="more" type="button" data-d="ef1">Details</button></span></li>
             <li><span><b>Roadmap</b>Customized roadmap and job search strategy playbook</span></li>
-            <li><span><b>Support</b>Email, replies within 48 hours</span></li>
+            <li><span><b>Support</b>Email for 7 days, replies within 48 hours</span></li>
             <li><span><b>Upgrade credit</b>Full fee counts toward a larger package <button class="more" type="button" data-d="ef2">Details</button></span></li>
           </ul>
           <div class="pay">
             <a class="btn btn-ghost" data-link="exec_audit" href="#contact">Get started</a>
             <p class="affirm">Card, or monthly payments with <b>Affirm</b></p>
+            <button class="all" type="button" data-d="full_ef">See everything included &rarr;</button>
           </div>
         </article>
         <article class="plan">
           <span class="tag ghost" style="visibility:hidden">&nbsp;</span>
           <h3>Executive – Standard</h3>
           <p class="price">$3,850 <span class="alt">one-time</span></p>
+          <p class="dur">90-day program</p>
           <p class="who">Transition strategy and positioning, with one interview prep call.</p>
           <ul>
             <li><span><b>Strategy</b>8 sessions, 45 minutes each <button class="more" type="button" data-d="et1">Details</button></span></li>
@@ -474,18 +496,21 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <div class="pay">
             <a class="btn btn-ghost" data-link="exec_transition" href="#contact">Get started</a>
             <p class="affirm">Card, or monthly payments with <b>Affirm</b></p>
+            <button class="all" type="button" data-d="full_et">See everything included &rarr;</button>
           </div>
         </article>
         <article class="plan featured">
+          <span class="stamp" aria-label="Includes the interview guarantee">&#10003; With guarantee</span>
           <span class="tag">Best value</span>
           <h3>Executive – Accelerator</h3>
           <p class="price">$4,450 <span class="alt">one-time</span></p>
+          <p class="dur">120-day program</p>
           <p class="who">The full partnership, with the interview guarantee.</p>
           <ul>
             <li><span><b>Strategy</b>12 sessions, 45 minutes each <button class="more" type="button" data-d="ep1">Details</button></span></li>
             <li><span><b>Materials</b>Feedback and positioning for your full executive dossier <button class="more" type="button" data-d="ep2">Details</button></span></li>
             <li><span><b>Feedback rounds</b>Up to 4 rounds</span></li>
-            <li><span><b>Interview prep</b>2 advanced interview labs <button class="more" type="button" data-d="ep3">Details</button></span></li>
+            <li><span><b>Interview prep</b>Advanced interview labs, practiced until you're ready <button class="more" type="button" data-d="ep3">Details</button></span></li>
             <li><span><b>Support</b>Private VIP channel, replies within 3 business hours</span></li>
             <li><span><b>Compensation</b>Full negotiation strategy <button class="more" type="button" data-d="ep4">Details</button></span></li>
             <li><span><b>First 90 days plan</b>Executive onboarding blueprint</span></li>
@@ -494,6 +519,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <div class="pay">
             <a class="btn btn-solid" data-link="exec_partnership" href="#contact">Get started</a>
             <p class="affirm">Card, or monthly payments with <b>Affirm</b></p>
+            <button class="all" type="button" data-d="full_ep">See everything included &rarr;</button>
           </div>
         </article>
       </div>
@@ -519,9 +545,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div class="faq">
         <details><summary>What are my payment options?</summary><p>Pay in full by card, or choose Affirm at checkout to pay monthly. Affirm shows you the plans it can offer, typically from 6 months up to 36 months on the larger packages. Approval, terms and any interest are set by Affirm, and checking your options won't affect your credit score.</p></details>
         <details><summary>Do you guarantee I'll get a job?</summary><p>No one honestly can. What the top package at each level does guarantee is interviews: four with hiring managers within 90 days on the mid-level Accelerator, or four with decision-makers within 120 days on the Executive – Accelerator, as long as you keep up your weekly outreach. If we miss that, I review your materials with you again at no charge and keep coaching you until you sign an offer.</p></details>
+        <details><summary>When does my program start and end?</summary><p>The clock starts at your first coaching session, not the day you pay, so you can book that session when it suits you. Sessions and between-session support all take place inside your program period: 60 or 90 days at mid-level, 90 or 120 days for executives. If life gets in the way, we can agree an extension in writing.</p></details>
+        <details><summary>What counts as a feedback round?</summary><p>One round is a single consolidated set of feedback on the materials we agreed on, such as your resume and LinkedIn, followed by your revisions. It isn't unlimited new resumes for different roles, and a major change of direction may need a new scope. Small clarifying questions during your program are always fine.</p></details>
         <details><summary>Are sessions online or in person?</summary><p>Online by video, so you can be anywhere. In-person sessions are available in the South Bay on request.</p></details>
         <details><summary>Who do you work with?</summary><p>Mid-level professionals, managers and senior individual contributors through to directors, VPs and executives. Tech and corporate backgrounds especially, since that's where I recruited.</p></details>
-        <details><summary>What if I'm not sure which package fits?</summary><p>Book the free 20-minute call, or start with the smallest package at your level. If you upgrade within 7 days, everything you paid counts toward the larger package.</p></details>
+        <details><summary>What if I'm not sure which package fits?</summary><p>Book the free 20-minute call, or start with the smallest package at your level. If you upgrade within 30 days, everything you paid counts toward the larger package.</p></details>
       </div>
     </div>
   </section>
@@ -589,11 +617,11 @@ const DETAILS = {
  ],
  "mf2": [
   "How the credit works",
-  "<p>If you enroll in a larger package within 7 calendar days of your session, 100% of what you paid for this one is credited toward it.</p>"
+  "<p>If you enroll in a larger package within 30 days of your session, 100% of what you paid for this one is credited toward it.</p>"
  ],
  "ms1": [
   "How the 5 sessions are spread",
-  "<ul><li><b>First month:</b> 4 weekly sessions</li><li><b>After that:</b> 1 more session two weeks later</li></ul><p>We work on your career story and how it lines up with the roles you're targeting.</p>"
+  "<ul><li><b>First month:</b> 4 weekly sessions</li><li><b>After that:</b> 1 more session two weeks later</li></ul><p>We work on your career story and how it lines up with the roles you're targeting.</p><p>Your 60 days start at your first session, so there's plenty of time to put the plan into action.</p>"
  ],
  "ms2": [
   "Your materials",
@@ -601,7 +629,7 @@ const DETAILS = {
  ],
  "ma1": [
   "How the 8 sessions are spread",
-  "<ul><li><b>First month:</b> 4 weekly sessions</li><li><b>After that:</b> 4 sessions, one every two weeks</li></ul><p>We cover where AI is moving your market, two target job-title paths, and a complete search strategy.</p>"
+  "<ul><li><b>First month:</b> 4 weekly sessions</li><li><b>After that:</b> 4 sessions, one every two weeks</li></ul><p>We cover where AI is moving your market, two target job-title paths, and a complete search strategy.</p><p>Your 90 days start at your first session.</p>"
  ],
  "ma2": [
   "Your materials",
@@ -609,7 +637,7 @@ const DETAILS = {
  ],
  "ma3": [
   "Interview preparation",
-  "<p>One full mock recruiter screen, plus one hiring-manager interview simulation that's recorded and returned to you with feedback.</p>"
+  "<p>A full mock recruiter screen and hiring-manager interview simulations, with feedback after each one. We keep practicing until we reach a level of competence where we're both confident you'll pass the real interview.</p>"
  ],
  "ma4": [
   "The interview guarantee",
@@ -621,11 +649,11 @@ const DETAILS = {
  ],
  "ef2": [
   "How the credit works",
-  "<p>If you enroll in a larger package within 7 calendar days of your session, 100% of what you paid for this one is credited toward it.</p>"
+  "<p>If you enroll in a larger package within 30 days of your session, 100% of what you paid for this one is credited toward it.</p>"
  ],
  "et1": [
   "How the 8 sessions are spread",
-  "<ul><li><b>First month:</b> 4 weekly sessions</li><li><b>After that:</b> 4 sessions, one every two weeks</li></ul><p>We work on your market transition strategy and outreach to executive search firms.</p>"
+  "<ul><li><b>First month:</b> 4 weekly sessions</li><li><b>After that:</b> 4 sessions, one every two weeks</li></ul><p>We work on your market transition strategy and outreach to executive search firms.</p><p>Your 90 days start at your first session.</p>"
  ],
  "et2": [
   "Your materials",
@@ -633,7 +661,7 @@ const DETAILS = {
  ],
  "ep1": [
   "How the 12 sessions are spread",
-  "<ul><li><b>First month:</b> 4 weekly sessions</li><li><b>After that:</b> 8 sessions, one every two weeks</li></ul><p>We cover C-suite positioning, handling a step down in title, and a strategy for roles that are never advertised.</p>"
+  "<ul><li><b>First month:</b> 4 weekly sessions</li><li><b>After that:</b> 8 sessions, one every two weeks</li></ul><p>We cover C-suite positioning, handling a step down in title, and a strategy for roles that are never advertised.</p><p>Your 120 days start at your first session.</p>"
  ],
  "ep2": [
   "The executive dossier",
@@ -641,7 +669,7 @@ const DETAILS = {
  ],
  "ep3": [
   "Advanced interview labs",
-  "<p>Two sessions covering panel presentation review, executive presence, and board-level scenarios.</p>"
+  "<p>Labs covering panel presentation review, executive presence, and board-level scenarios. We keep practicing until we reach a level of competence where we're both confident you'll pass the real interview.</p>"
  ],
  "ep4": [
   "Compensation negotiation",
@@ -650,6 +678,30 @@ const DETAILS = {
  "ep5": [
   "The interview guarantee",
   "<p>At least four decision-maker interviews within 120 days of launch. That means interviews with C-suite or VP hiring authorities or internal executive talent directors, or a place on an executive search firm's shortlist.</p><p><b>If we don't get there:</b> I review your materials and positioning with you again at no charge, and keep advising you every two weeks, including negotiation support, until you sign an offer (up to 6 more months). There are no cash refunds.</p><p><b>Your part:</b></p><ul><li>Log at least 5 targeted applications or outreach messages a week in our shared tracker</li><li>Do the prep session before each real interview and use the positioning we agreed</li><li>Keep the approved resume layout and messaging</li></ul><p>The guarantee is met if you receive a written offer that matches your target pay and location, even if you turn it down. Full terms are in your coaching agreement.</p>"
+ ],
+ "full_mf": [
+  "Strategy Audit: everything included",
+  "<h4>Timeline</h4><p>One 60-minute session, a written plan within 48 hours, and 7 days of email support. Most people are wrapped up about a week after their session.</p><h4>What you get</h4><ul><li>A short pre-session questionnaire on your goals, roadblocks and target roles</li><li>A review of your resume, LinkedIn and search so far</li><li>One private 60-minute strategy session</li><li>A customized roadmap and job search strategy playbook, within 48 hours</li><li>7 days of email support to clarify the plan, replies within 48 hours</li></ul><h4>Upgrade credit</h4><p>Enroll in Standard or Accelerator within 30 days of your session and the full $400 counts toward it.</p><h4>Not included</h4><p>This is an assessment and action-planning service. It doesn't include ongoing coaching, interview practice or ongoing resume feedback.</p>"
+ ],
+ "full_ms": [
+  "Standard: everything included",
+  "<h4>Timeline</h4><p>A 60-day program that starts at your first session. Your 5 sessions run weekly for the first month, then one more two weeks later, which leaves time to put the plan into action.</p><h4>Coaching</h4><ul><li>5 private sessions, 45 minutes each</li><li>Role targeting, positioning and a customized job search roadmap</li><li>A networking and outreach strategy built around your goals</li></ul><h4>Materials and support</h4><ul><li>Feedback and positioning for your resume and LinkedIn, for one target direction</li><li>2 feedback rounds (one consolidated set of feedback on the agreed materials, then your revisions)</li><li>Email support for the full 60 days, replies within 24 business hours</li><li>Offer negotiation email templates</li></ul><h4>Not included</h4><p>Dedicated mock interviews, live salary negotiation coaching, messaging-app support and the interview guarantee. Those come with the Accelerator.</p><h4>Good to know</h4><p>You write your own materials; I give you detailed feedback and help you position them. A major change of direction may need a new scope.</p>"
+ ],
+ "full_ma": [
+  "Accelerator: everything included",
+  "<h4>Timeline</h4><p>A 90-day program that starts at your first session: 4 weekly sessions in the first month, then one every two weeks. The interview guarantee runs on the same 90 days.</p><h4>Coaching</h4><ul><li>8 private sessions in total, 45 minutes each (not 8 on top of Standard's 5)</li><li>Targeting, referral outreach and a complete job search strategy</li><li>Two target job-title paths, and where AI is moving your market</li></ul><h4>Materials</h4><ul><li>Feedback and positioning for 2 resume versions, your LinkedIn and a modular cover letter</li><li>Up to 3 feedback rounds</li></ul><h4>Interviews and offers</h4><ul><li>Mock recruiter screen and hiring-manager simulations, practiced until we're both confident you'd pass the real interview</li><li>Live negotiation strategy, scripts and counter-offer coaching</li></ul><h4>Support</h4><p>Slack or WhatsApp for the full 90 days, replies within 3 business hours.</p><h4>The guarantee</h4><p>4 interviews with hiring managers within 90 days of launching your approved materials, or I keep coaching you under the guarantee terms. It's about interviews, not a job offer.</p>"
+ ],
+ "full_ef": [
+  "Executive Strategy Audit: everything included",
+  "<h4>Timeline</h4><p>Two 45-minute sessions, a written plan within 48 hours, and 7 days of email support.</p><h4>What you get</h4><ul><li>A short pre-session questionnaire on your goals and target roles</li><li>A review of your executive resume, LinkedIn and search so far</li><li>Two private 45-minute sessions on your leadership narrative, including P&amp;L ownership, and how to position yourself</li><li>A customized roadmap and job search strategy playbook</li><li>7 days of email support, replies within 48 hours</li></ul><h4>Upgrade credit</h4><p>Enroll in a larger package within 30 days of your session and the full $600 counts toward it.</p><h4>Not included</h4><p>Ongoing coaching, interview practice or ongoing resume feedback.</p>"
+ ],
+ "full_et": [
+  "Executive – Standard: everything included",
+  "<h4>Timeline</h4><p>A 90-day program that starts at your first session: 4 weekly sessions in the first month, then one every two weeks.</p><h4>Coaching</h4><ul><li>8 private sessions, 45 minutes each</li><li>Market transition strategy and outreach to executive search firms</li><li>1 senior interview prep call</li></ul><h4>Materials and support</h4><ul><li>Feedback and repositioning for your executive resume and LinkedIn</li><li>2 feedback rounds</li><li>Email or messaging, replies within 24 hours</li><li>Compensation benchmarking data</li></ul><h4>Not included</h4><p>The first-90-days plan, full negotiation strategy and the interview guarantee. Those come with the Executive – Accelerator.</p>"
+ ],
+ "full_ep": [
+  "Executive – Accelerator: everything included",
+  "<h4>Timeline</h4><p>A 120-day program that starts at your first session: 4 weekly sessions in the first month, then one every two weeks. The interview guarantee runs on the same 120 days.</p><h4>Coaching</h4><ul><li>12 private sessions, 45 minutes each</li><li>C-suite positioning, handling a step down in title, and a strategy for roles that are never advertised</li></ul><h4>Materials</h4><ul><li>Feedback and positioning for your executive resume, a one-page executive biography, a second resume for an alternate track, and your LinkedIn</li><li>Up to 4 feedback rounds</li></ul><h4>Interviews and offers</h4><ul><li>Advanced interview labs on panel presentations, executive presence and board-level scenarios, practiced until we're both confident you'd pass the real interview</li><li>Full compensation negotiation strategy: base, bonus, equity, sign-on and severance</li><li>Executive onboarding blueprint for your first 90 days</li></ul><h4>Support</h4><p>Private VIP channel for the full 120 days, replies within 3 business hours.</p><h4>The guarantee</h4><p>4 decision-maker interviews within 120 days of launch, or I keep advising you under the guarantee terms. It's about interviews, not a job offer.</p>"
  ],
  "g1": [
   "The interview guarantee",
@@ -662,12 +714,44 @@ tabs.forEach(t => t.addEventListener("click", () => tabs.forEach(o => {
   document.getElementById(o.getAttribute("aria-controls")).hidden = !on;
 })));
 const pop = document.getElementById("pop");
-document.querySelectorAll(".more").forEach(b => b.addEventListener("click", () => {
+document.querySelectorAll(".more, .all").forEach(b => b.addEventListener("click", () => {
+  hideTip();
   const d = DETAILS[b.dataset.d]; if (!d) return;
   document.getElementById("pop-t").textContent = d[0];
   document.getElementById("pop-b").innerHTML = d[1];
   if (pop.showModal) pop.showModal(); else pop.setAttribute("open","");
 }));
+/* Hover / keyboard-focus preview of every "Details" link (mouse devices only; touch devices tap to open) */
+const tip = document.createElement("div");
+tip.id = "tip"; tip.setAttribute("role", "tooltip"); document.body.appendChild(tip);
+let tipTimer = null;
+function hideTip(){ clearTimeout(tipTimer); tip.style.display = "none"; }
+function showTip(b){
+  const d = DETAILS[b.dataset.d]; if (!d) return;
+  clearTimeout(tipTimer);
+  tip.innerHTML = "<strong></strong>" + d[1];
+  tip.firstChild.textContent = d[0];
+  tip.style.display = "block";
+  const r = b.getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight, pad = 12;
+  let left = Math.min(Math.max(pad, r.left + r.width / 2 - tw / 2), window.innerWidth - tw - pad);
+  let top = r.bottom + 8;
+  if (top + th > window.innerHeight - pad) top = Math.max(pad, r.top - th - 8);
+  tip.style.left = left + "px"; tip.style.top = top + "px";
+  b.setAttribute("aria-describedby", "tip");
+}
+function scheduleHide(){ clearTimeout(tipTimer); tipTimer = setTimeout(hideTip, 160); }
+if (window.matchMedia("(hover: hover)").matches) {
+  document.querySelectorAll(".more").forEach(b => {
+    b.addEventListener("mouseenter", () => showTip(b));
+    b.addEventListener("mouseleave", scheduleHide);
+    b.addEventListener("focus", () => showTip(b));
+    b.addEventListener("blur", scheduleHide);
+  });
+  tip.addEventListener("mouseenter", () => clearTimeout(tipTimer));
+  tip.addEventListener("mouseleave", scheduleHide);
+  window.addEventListener("scroll", hideTip, {passive: true});
+  document.addEventListener("keydown", e => { if (e.key === "Escape") hideTip(); });
+}
 document.getElementById("pop-x").addEventListener("click", () => pop.close ? pop.close() : pop.removeAttribute("open"));
 pop.addEventListener("click", e => { if (e.target === pop) pop.close(); });
 
